@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrinosh - Your Personal Diet & Nutrition Guide</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Style for the hero section background image */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/gemini-prod-us-west1-4550/publishable/user_uploaded_images/nutrinosh%206.jpg-5934a13f-d55d-4786-adcd-97461f02cea2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Dark mode styles */
+        .dark .hero-bg {
+             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://storage.googleapis.com/gemini-prod-us-west1-4550/publishable/user_uploaded_images/nutrinosh%206.jpg-5934a13f-d55d-4786-adcd-97461f02cea2.jpg');
+        }
+        .dark body {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+        .dark .bg-white { background-color: #1f2937; }
+        .dark .bg-gray-50 { background-color: #111827; }
+        .dark .bg-gray-100 { background-color: #374151; }
+        .dark .text-gray-800 { color: #f9fafb; }
+        .dark .text-gray-600 { color: #d1d5db; }
+        .dark .text-gray-500 { color: #9ca3af; }
+        .dark .border-gray-200 { border-color: #4b5563; }
+        .dark .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50 antialiased">
+
+    <!-- Header Section -->
+    <header id="header" class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-green-600 dark:text-green-400">
+                    Nutrinosh
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Home</a>
+                    <a href="#features" class="text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Features</a>
+                    <a href="#recipes" class="text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Recipes</a>
+                    <a href="#tracker" class="text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Tracker</a>
+                    <a href="#start" class="text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Get Started</a>
+                </nav>
+
+                <!-- Right side buttons -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="text-gray-600 hover:text-green-600 focus:outline-none">
+                        <i data-feather="sun" class="block dark:hidden"></i>
+                        <i data-feather="moon" class="hidden dark:block"></i>
+                    </button>
+                    <a href="#" class="hidden sm:block bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700 transition shadow">Sign Up</a>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#home" class="block text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Home</a>
+            <a href="#features" class="block text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Features</a>
+            <a href="#recipes" class="block text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Recipes</a>
+            <a href="#tracker" class="block text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Tracker</a>
+            <a href="#start" class="block text-gray-600 hover:text-green-600 dark:hover:text-green-400 transition">Get Started</a>
+            <a href="#" class="block bg-green-600 text-white text-center mt-2 px-5 py-2 rounded-full hover:bg-green-700 transition shadow">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white pt-20">
+            <div class="text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Eat Smart, Live Well.</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-gray-200">Your personalized journey to a healthier lifestyle starts here. Get custom meal plans, track your progress, and discover delicious healthy recipes.</p>
+                <a href="#start" class="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition transform hover:scale-105 shadow-lg">Start Your Journey</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Your All-in-One Nutrition Hub</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Everything you need to achieve your health goals, all in one place.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1: Diet Planner -->
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i data-feather="calendar" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Personalized Diet Planner</h3>
+                        <p class="text-gray-600">Get meal suggestions tailored to your goals, preferences (veg, keto, etc.), and calorie needs.</p>
+                    </div>
+                    <!-- Feature 2: Nutrition Tracker -->
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i data-feather="target" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nutrition Tracker</h3>
+                        <p class="text-gray-600">Easily log your meals and track calories, macros, vitamins, and water intake with precision.</p>
+                    </div>
+                    <!-- Feature 3: Recipe Hub -->
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i data-feather="book-open" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Healthy Recipe Hub</h3>
+                        <p class="text-gray-600">Explore hundreds of delicious recipes with detailed nutritional information and cooking instructions.</p>
+                    </div>
+                    <!-- Feature 4: Educational Portal -->
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i data-feather="award" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Educational Portal</h3>
+                        <p class="text-gray-600">Learn about nutrition, healthy habits, and get expert tips to support your wellness journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Hub Section -->
+        <section id="recipes" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Discover Delicious & Healthy Recipes</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Eating healthy doesn't have to be boring. Find your next favorite meal right here.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Recipe Card 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Avocado Salad" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <span class="text-sm text-green-600 dark:text-green-400 font-semibold">Salad</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Avocado & Quinoa Salad</h3>
+                            <div class="flex justify-between text-gray-500 text-sm">
+                                <span><i data-feather="clock" class="w-4 h-4 inline-block mr-1"></i> 15 Mins</span>
+                                <span><i data-feather="zap" class="w-4 h-4 inline-block mr-1"></i> 350 kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Grilled Chicken" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <span class="text-sm text-red-600 dark:text-red-400 font-semibold">Main Course</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Grilled Chicken Breast</h3>
+                             <div class="flex justify-between text-gray-500 text-sm">
+                                <span><i data-feather="clock" class="w-4 h-4 inline-block mr-1"></i> 30 Mins</span>
+                                <span><i data-feather="zap" class="w-4 h-4 inline-block mr-1"></i> 450 kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                        <img src="https://images.unsplash.com/photo-1484723050470-6b6e41aee066?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Berry Smoothie" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <span class="text-sm text-purple-600 dark:text-purple-400 font-semibold">Breakfast</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Mixed Berry Smoothie</h3>
+                             <div class="flex justify-between text-gray-500 text-sm">
+                                <span><i data-feather="clock" class="w-4 h-4 inline-block mr-1"></i> 5 Mins</span>
+                                <span><i data-feather="zap" class="w-4 h-4 inline-block mr-1"></i> 250 kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                     <a href="#" class="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition shadow-lg">View More Recipes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Tracker Section -->
+        <section id="tracker" class="py-20 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- Left Side: Text Content -->
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Track Your Progress, Visually</h2>
+                        <p class="text-gray-600 mb-8">Stay motivated by seeing how far you've come. Our intuitive charts and trackers make it easy to monitor your weight, calorie intake, and more. Celebrate your achievements and stay on track!</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-3"></i>
+                                <span class="text-gray-600">Monitor weight changes over time.</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-3"></i>
+                                <span class="text-gray-600">Visualize daily calorie and macro intake.</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-3"></i>
+                                <span class="text-gray-600">Log water consumption to stay hydrated.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Side: Visual Tracker -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-2xl shadow-2xl">
+                            <h3 class="font-bold text-xl text-gray-800 mb-4">Your Weekly Summary</h3>
+                            <!-- Placeholder for a chart -->
+                            <div class="bg-gray-200 dark:bg-gray-600 h-64 rounded-lg flex items-center justify-center">
+                                <p class="text-gray-500">Progress Chart (e.g., Chart.js)</p>
+                            </div>
+                            <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <p class="text-2xl font-bold text-green-600 dark:text-green-400">-2.5kg</p>
+                                    <p class="text-sm text-gray-500">Weight</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-blue-600 dark:text-blue-400">1850</p>
+                                    <p class="text-sm text-gray-500">Avg. Calories</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-cyan-600 dark:text-cyan-400">2.1L</p>
+                                    <p class="text-sm text-gray-500">Avg. Water</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- "Wow Factor" - Before & After -->
+        <section class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Your Transformation Story</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Upload your photos and watch your transformation unfold. A powerful motivator for your health journey.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <!-- Before -->
+                    <div class="text-center">
+                        <div class="w-64 h-80 bg-gray-200 dark:bg-gray-700 rounded-xl shadow-lg flex items-center justify-center mb-4">
+                            <i data-feather="user" class="w-16 h-16 text-gray-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-500">Before</h3>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="text-green-500 my-4 md:my-0">
+                        <i data-feather="arrow-right-circle" class="w-12 h-12 md:rotate-0 rotate-90"></i>
+                    </div>
+                    <!-- After -->
+                    <div class="text-center">
+                        <div class="w-64 h-80 bg-gray-200 dark:bg-gray-700 rounded-xl shadow-lg flex items-center justify-center mb-4">
+                            <i data-feather="user-check" class="w-16 h-16 text-green-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-500">After</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- How It Works / Get Started Section -->
+        <section id="start" class="py-20 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Get Started in 5 Simple Steps</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Starting your health journey has never been easier. Follow these steps to begin.</p>
+                </div>
+                <div class="relative">
+                    <!-- The connecting line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 dark:bg-gray-600 -translate-y-1/2"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 text-center relative">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 flex items-center justify-center bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-2xl font-bold border-4 border-white dark:border-gray-800 z-10">1</div>
+                            <h3 class="font-bold mt-4 mb-2 text-gray-800">Sign Up</h3>
+                            <p class="text-gray-600 text-sm">Create your profile and enter your details.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 flex items-center justify-center bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-2xl font-bold border-4 border-white dark:border-gray-800 z-10">2</div>
+                            <h3 class="font-bold mt-4 mb-2 text-gray-800">Calculate Needs</h3>
+                            <p class="text-gray-600 text-sm">We'll calculate your daily calorie and nutrient needs.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 flex items-center justify-center bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-2xl font-bold border-4 border-white dark:border-gray-800 z-10">3</div>
+                            <h3 class="font-bold mt-4 mb-2 text-gray-800">Get Your Plan</h3>
+                            <p class="text-gray-600 text-sm">Receive personalized meal plans and recipes.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 flex items-center justify-center bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-2xl font-bold border-4 border-white dark:border-gray-800 z-10">4</div>
+                            <h3 class="font-bold mt-4 mb-2 text-gray-800">Log Your Meals</h3>
+                            <p class="text-gray-600 text-sm">Easily track what you eat throughout the day.</p>
+                        </div>
+                        <!-- Step 5 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 flex items-center justify-center bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-2xl font-bold border-4 border-white dark:border-gray-800 z-10">5</div>
+                            <h3 class="font-bold mt-4 mb-2 text-gray-800">See Results</h3>
+                            <p class="text-gray-600 text-sm">Watch your progress and stay motivated!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA & PDF Download Section -->
+        <section class="py-20 bg-green-600 text-white">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Life?</h2>
+                 <p class="text-lg mb-8 max-w-2xl mx-auto">Join Nutrinosh today and take the first step towards a healthier, happier you. Plus, get downloadable PDF diet plans to take with you on the go!</p>
+                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#" class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-200 transition transform hover:scale-105 shadow-lg w-full sm:w-auto">Create Your Free Account</a>
+                    <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-green-600 transition transform hover:scale-105 w-full sm:w-auto">
+                        <i data-feather="download" class="inline-block mr-2 w-5 h-5"></i>
+                        Download a Sample Plan
+                    </a>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-2xl font-bold text-green-600 dark:text-green-400 mb-4">Nutrinosh</h3>
+                    <p class="text-gray-600">Your partner in achieving a healthy and balanced lifestyle through personalized nutrition.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-600 hover:text-green-600">Home</a></li>
+                        <li><a href="#features" class="text-gray-600 hover:text-green-600">Features</a></li>
+                        <li><a href="#recipes" class="text-gray-600 hover:text-green-600">Recipes</a></li>
+                        <li><a href="#tracker" class="text-gray-600 hover:text-green-600">Tracker</a></li>
+                    </ul>
+                </div>
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-green-600">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-green-600">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Social -->
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-green-600"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-green-600"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-green-600"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-green-600"><i data-feather="youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 Nutrinosh. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Feather Icons Initialization
+        feather.replace();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          htmlElement.classList.add('dark');
+        } else {
+          htmlElement.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Shrink header on scroll
+        const header = document.getElementById('header');
+        window.onscroll = function() {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        };
+    </script>
+    <script src="js/knowledge-base.js"></script>
+    <script src="js/recipes.js"></script>
+    <script src="js/meal-planner.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
